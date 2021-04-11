@@ -28,7 +28,7 @@ const messenger = require("./telegram_adapter");
 (async () => {
   const browser = RASPBIAN
     ? await puppeteer.launch({ executablePath: "/usr/bin/chromium-browser" })
-    : await puppeteer.launch({ headless: false });
+    : await puppeteer.launch({});
   const page = await browser.newPage();
 
   try {
