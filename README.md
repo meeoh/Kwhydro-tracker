@@ -2,7 +2,7 @@
 
 Script to read the amount of hydro used in the past day on https://www.kwhydro.on.ca/en/index.asp. Currently messages the result over telegram via the telegram adapter. Any other adapters should implement the sendMessage method, then can be swapped out easily in `index.js`. The default implementation simply changes the period of time to day and reads the percentage increase/decrease compared to the previous day.
 
-The current version is pretty tied to the telegram adapter, since multiple accounts are supported (Since I run this for multiple people), each person needs a chat_id, login, and password env var. 
+The current version is pretty tied to the telegram adapter, since multiple accounts are supported (Since I run this for multiple people), each person needs a chat_id, login, and password env var. If you want to implement a different adapter, some modifications will need to be made (especially around the part that validates the env vars exist)
 
 ## Setup
 
