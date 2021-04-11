@@ -67,5 +67,8 @@ const messenger = require("./telegram_adapter");
     messenger.sendMessage(
       `Electricity usage on ${text[0]} cost ${text[2]} (${text[1]})`
     );
-  } catch (e) {}
+  } catch (e) {
+  } finally {
+    await browser.close();
+  }
 })();
