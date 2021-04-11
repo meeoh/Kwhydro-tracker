@@ -5,18 +5,19 @@ Script to read the amount of hydro used in the past day on https://www.kwhydro.o
 ## Setup
 
 Set the appropriate environment variables in the `.env`.
+
 ```
 # kwhydro login info
-LOGIN=
-PASSWORD=
+LOGINS='first_login,second_login'
+PASSWORDS='first_pass,second_pass'
 
 # vars for telegram adapter
 TELEGRAM_TOKEN=
-CHAT_ID=
+CHAT_IDS='first_chatid,second_chatid'
 
 ```
 
-## Running 
+## Running
 
 Then run `npm i` or `./build.sh` for a dockerized setup. Create a cronjob to either run `node index.js` or the `run.sh` script periodically
 
