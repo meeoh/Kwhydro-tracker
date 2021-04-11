@@ -67,25 +67,5 @@ const messenger = require("./telegram_adapter");
     messenger.sendMessage(
       `Electricity usage on ${text[0]} cost ${text[2]} (${text[1]})`
     );
-
-    // await page
-    //   .waitForSelector("#ctl01_MasterContentPlaceHolder1_lblChangeNumber")
-    //   .then(async (el) => {
-    //     const percentage = await page.evaluate(
-    //       (element) => element.textContent,
-    //       el
-    //     );
-    //     const changeTypeElm = await page.$(
-    //       "#ctl01_MasterContentPlaceHolder1_lblChangeDirection"
-    //     );
-    //     const changeType = await page.evaluate(
-    //       (element) => element.textContent,
-    //       changeTypeElm
-    //     );
-    //     messenger.sendMessage(
-    //       `Electricity usage ${changeType.toLowerCase()} ${percentage} compared to the day before.`
-    //     );
-    //   });
-    // await browser.close();
   } catch (e) {}
 })();
