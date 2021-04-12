@@ -23,7 +23,7 @@ function delay(time) {
   });
 }
 
-const messenger = require("./telegram_adapter");
+const messenger = require("./discord_adapter");
 
 const logins = loginsEnvVar.split(",");
 const passwords = passwordsEnvVar.split(",");
