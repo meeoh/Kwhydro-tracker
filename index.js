@@ -6,12 +6,11 @@ const {
   LOGINS: loginsEnvVar,
   PASSWORDS: passwordsEnvVar,
   CHROME_PATH: chromePath,
-  CHAT_IDS: chatIdsEnvVar,
   RASPBIAN,
 } = process.env;
 
-const required = ["LOGINS", "PASSWORDS", "CHAT_IDS"];
-if (!loginsEnvVar || !passwordsEnvVar || !chatIdsEnvVar) {
+const required = ["LOGINS", "PASSWORDS"];
+if (!loginsEnvVar || !passwordsEnvVar) {
   const missing = [];
   required.forEach((k) => (!process.env[k] ? missing.push(k) : null));
   console.log(`Missing ${missing.join(", ")}`);
@@ -28,12 +27,9 @@ const messenger = require("./telegram_adapter");
 
 const logins = loginsEnvVar.split(",");
 const passwords = passwordsEnvVar.split(",");
-const chatIds = chatIdsEnvVar.split(",");
 
-if (logins.length !== passwords.length || logins.length !== chatIds.length) {
-  console.log(
-    "Logins, passwords, and chat ids env vars need to be arrays of same length"
-  );
+if (logins.length !== passwords.length) {
+  console.log("Logins and passwords env vars need to be arrays of same length");
   process.exit();
 }
 
@@ -41,7 +37,6 @@ if (logins.length !== passwords.length || logins.length !== chatIds.length) {
   for (var i = 0; i < logins.length; i++) {
     const login = logins[i].trim();
     const password = passwords[i].trim();
-    const chatId = chatIds[i].trim();
 
     const browser = RASPBIAN
       ? await puppeteer.launch({ executablePath: "/usr/bin/chromium-browser" })
@@ -83,7 +78,7 @@ if (logins.length !== passwords.length || logins.length !== chatIds.length) {
 
       messenger.sendMessage(
         `Electricity usage on ${text[0]} cost ${text[2]} (${text[1]})`,
-        chatId
+        i
       );
     } catch (e) {
     } finally {
