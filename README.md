@@ -14,8 +14,8 @@ LOGINS='first_login,second_login'
 PASSWORDS='first_pass,second_pass'
 
 # vars for telegram adapter
-TELEGRAM_TOKEN=
-CHAT_IDS='first_chatid,second_chatid'
+DISCORD_TOKEN=
+DISCORD_IDS='first_chatid,second_chatid'
 
 ```
 
