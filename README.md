@@ -1,6 +1,8 @@
 # Kwhydro-tracker
 
-Script to read the amount of hydro used in the past day on https://www.kwhydro.on.ca/en/index.asp. Currently messages the result over telegram via the telegram adapter. Any other adapters should implement the sendMessage method, then can be swapped out easily in `index.js`. The default implementation simply changes the period of time to day and reads the percentage increase/decrease compared to the previous day.
+Script to read the amount of hydro used in the past day on https://www.kwhydro.on.ca/en/index.asp. Currently messages the result over discord via the discord adapter. Any other adapters should implement the sendMessage method, then can be swapped out easily in `index.js`.
+
+In order to setup a discord bot, follow: https://discordjs.guide/preparations/setting-up-a-bot-application.html. Make sure you are and the bot have a shared server or else it wont be able to DM you!
 
 ## Setup
 
