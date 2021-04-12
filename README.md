@@ -34,4 +34,4 @@ npm i
 
 Then simply run `node index.js`
 
-![image](https://user-images.githubusercontent.com/5509365/114325066-1504bc00-9afc-11eb-9c71-a3bfef3b0afb.png)
+![image](https://user-images.githubusercontent.com/5509365/114328354-53a17300-9b0a-11eb-807a-a9c72a621757.png)
