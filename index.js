@@ -62,8 +62,15 @@ if (logins.length !== passwords.length) {
 
       await delay(3000);
 
+      const firstGroupHeight = await page.$eval(
+        ".highcharts-series-group > .highcharts-series-0 > rect:nth-last-child(2)",
+        (a) => a.getAttribute("height")
+      );
+
+      const groupIndex = firstGroupHeight == 0 ? 1 : 0;
+
       await page.hover(
-        ".highcharts-series-group > .highcharts-series-0 > rect:nth-last-child(2)"
+        `.highcharts-series-group > .highcharts-series-${groupIndex} > rect:nth-last-child(2)`
       );
 
       const text = [];
