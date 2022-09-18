@@ -1,8 +1,6 @@
 require("dotenv").config({ path: `${__dirname}/.env` });
-const {
-  DISCORD_TOKEN: discordToken,
-  DISCORD_IDS: discordIdsEnvVar,
-} = process.env;
+const { DISCORD_TOKEN: discordToken, DISCORD_IDS: discordIdsEnvVar } =
+  process.env;
 
 const required = ["DISCORD_TOKEN", "DISCORD_IDS"];
 if (!discordToken || !discordIdsEnvVar) {

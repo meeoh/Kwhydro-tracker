@@ -74,14 +74,16 @@ if (logins.length !== passwords.length) {
       );
 
       const text = [];
-      await page.waitForSelector(".highcharts-tooltip tspan").then(async () => {
-        elements = await page.$$(".highcharts-tooltip tspan");
-        for (var i = 0; i < elements.length; i++) {
-          text.push(
-            await page.evaluate((element) => element.textContent, elements[i])
-          );
-        }
-      });
+      await page.waitForSelector(".highcharts-tooltip tspan");
+      elements = await page.$$(".highcharts-tooltip tspan");
+
+      for (var j = 0; j < elements.length; j++) {
+        const currText = await page.evaluate(
+          (element) => element.textContent,
+          elements[j]
+        );
+        text.push(currText);
+      }
 
       messenger.sendMessage(
         `Electricity usage on ${text[0]} cost ${text[2]} (${text[1]})`,
